@@ -17,6 +17,8 @@
 - PostgreSQL
 - Redis
 - Celery
+- Docker
+- Docker Compose
 
 ## Документация
 
@@ -28,16 +30,12 @@
 ## Как запустить проект
 
 Для запуска проекта необходимо выполнить следующие шаги:
-
-1. Cклонируйте репозиторий себе на компьютер.
-2. Перейдите в каталог проекта.
-3. Создайте и активируйте виртуальное окружение.
-4. Установите все зависимости, выполните pip install -r requirements.txt.
-5. Создайте файл .env и заполните его, используя образец из файла .env.example
-6. Создайте БД командой `psql -U <postgres_user>`, а затем командой `CREATE DATABASE <database_name>;`
-7. Выполните python manage.py migrate.
-8. Создайте администратора, выполните python manage.py csu.
-9. Запустите сервер разработки, выполните python manage.py runserver.
+1. При необходимости установите Docker и Docker Compose на компьютер с помощью инструкции https://docs.docker.com/engine/install/
+2. Cклонируйте репозиторий себе на компьютер
+3. Создайте файл .env и заполните его, используя образец из файла .env.example
+4. Соберите образ с помощью команды `docker-compose build`
+5. Создайте БД командой `docker-compose exec db psql -U <postgres_user>`, а затем командой `CREATE DATABASE <database_name>;`
+6. Запустите контейнеры с помощью команды `docker-compose up`
 
 ## Файл .env.example
 
